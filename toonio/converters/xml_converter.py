@@ -8,9 +8,6 @@ Provides concrete implementations for converting between XML and TOON formats.
 
 Uses ``xml.etree.ElementTree`` from the standard library for XML parsing
 and generation. Conversion is done via an intermediate Python dict.
-
-Author: Mohit
-License: MIT
 """
 
 import xml.etree.ElementTree as ET

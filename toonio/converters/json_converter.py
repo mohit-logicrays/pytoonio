@@ -30,9 +30,6 @@ TOON List Format Rules
 
 - **Primitive list** (all items are non-dict scalars):
   Inline bracket notation: ``[val1, val2, val3]``
-
-Author: Mohit
-License: MIT
 """
 
 import json

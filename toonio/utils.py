@@ -3,9 +3,6 @@ ToonIO Utilities Module.
 
 Shared utility functions for type detection, string escaping,
 indentation management, and delimiter resolution.
-
-Author: Mohit
-License: MIT
 """
 
 from typing import Any

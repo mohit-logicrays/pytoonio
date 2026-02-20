@@ -3,9 +3,6 @@ ToonIO Constants Module.
 
 Defines all constant values used across the ToonIO library including
 delimiters, indent sizes, and TOON format literals.
-
-Author: Mohit
-License: MIT
 """
 
 from enum import Enum
