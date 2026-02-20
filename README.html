@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToonIO — Documentation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    /* Headings */
+    h1 { font-size: 2.2rem; color: #58a6ff; border-bottom: 2px solid #21262d; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    h2 { font-size: 1.5rem; color: #79c0ff; border-bottom: 1px solid #21262d; padding-bottom: 0.35rem; margin: 2rem 0 1rem; }
+    h3 { font-size: 1.15rem; color: #d2a8ff; margin: 1.5rem 0 0.6rem; }
+    h4 { font-size: 1rem; color: #ffa657; margin: 1.2rem 0 0.4rem; }
+
+    /* Paragraphs and text */
+    p { margin-bottom: 1rem; }
+    strong { color: #e6edf3; }
+    em { color: #8b949e; }
+    a { color: #58a6ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Code blocks */
+    pre {
+      background: #1c2128;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      overflow-x: auto;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: #1c2128;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      padding: 0.15em 0.4em;
+      color: #f0883e;
+    }
+    pre code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: #e6edf3;
+      font-size: inherit;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+    thead { background: #1c2128; }
+    th {
+      text-align: left;
+      padding: 0.6rem 1rem;
+      color: #58a6ff;
+      border-bottom: 2px solid #30363d;
+      white-space: nowrap;
+    }
+    td {
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #21262d;
+      vertical-align: top;
+    }
+    tr:hover td { background: #1c2128; }
+
+    /* Lists */
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.3rem; }
+
+    /* Blockquotes */
+    blockquote {
+      border-left: 4px solid #388bfd;
+      background: #1c2128;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0 1.5rem;
+      color: #8b949e;
+    }
+    blockquote p { margin: 0; }
+
+    /* HR */
+    hr {
+      border: none;
+      border-top: 1px solid #21262d;
+      margin: 2rem 0;
+    }
+
+    /* Badge images */
+    img {
+      max-height: 28px;
+      margin: 0 4px 4px 0;
+      vertical-align: middle;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #21262d;
+      color: #8b949e;
+      font-size: 0.875rem;
+    }
+    .footer a { color: #58a6ff; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1 id="toonio">ToonIO</h1>
+<p><img alt="ToonIO" src="https://img.shields.io/badge/ToonIO-v0.0.1-blue?style=for-the-badge" /><br />
+<img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-green?style=for-the-badge&amp;logo=python" /><br />
+<img alt="License" src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" /><br />
+<img alt="PyPI" src="https://img.shields.io/badge/PyPI-toonio-orange?style=for-the-badge&amp;logo=pypi" /></p>
+<p><strong>A lightweight Python library for converting between JSON, XML, and TOON — a modern, human-friendly data format.</strong></p>
+<hr />
+<h2 id="what-is-toon">🚀 What is TOON?</h2>
+<p><strong>TOON</strong> is a clean and expressive data format that focuses on:</p>
+<ul>
+<li>✅ <strong>Improved human readability</strong> — Easy to read and understand at a glance</li>
+<li>✅ <strong>Minimal syntax complexity</strong> — Less visual noise compared to JSON and XML</li>
+<li>✅ <strong>Easier manual editing</strong> — Friendly for developers and non-developers alike</li>
+<li>✅ <strong>Clear structure representation</strong> — Logical and consistent nesting</li>
+</ul>
+<p>It aims to combine the structural clarity of JSON and XML while significantly reducing visual clutter.</p>
+<hr />
+<h2 id="features">✨ Features</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔄 JSON → TOON</td>
+<td>Convert any JSON data to the TOON format</td>
+</tr>
+<tr>
+<td>🔄 XML → TOON</td>
+<td>Convert any XML data to the TOON format</td>
+</tr>
+<tr>
+<td>🔄 TOON → JSON</td>
+<td>Parse TOON back into JSON</td>
+</tr>
+<tr>
+<td>🔄 TOON → XML</td>
+<td>Parse TOON back into XML</td>
+</tr>
+<tr>
+<td>🪶 Lightweight</td>
+<td>Minimal dependencies, fast and efficient</td>
+</tr>
+<tr>
+<td>🧩 Simple API</td>
+<td>Clean, intuitive API for easy integration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="installation">📦 Installation</h2>
+<p>Install ToonIO via pip:</p>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>toonio
+</code></pre></div>
+
+<p><strong>Requirements:</strong> Python 3.10+</p>
+<hr />
+<h2 id="usage">🧑‍💻 Usage</h2>
+<h3 id="quick-start">Quick Start</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+</code></pre></div>
+
+<hr />
+<h3 id="json-toon">🔄 JSON → TOON</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1001</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Emma Wilson&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1002</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;James Brown&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;editor&quot;</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;totalCount&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">toon</span> <span class="o">=</span> <span class="n">convert</span><span class="o">.</span><span class="n">json_to_toon</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">toon</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Output:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">users</span><span class="o">:</span>
+<span class="w">  </span><span class="n">id</span><span class="o">,</span><span class="w"> </span><span class="n">name</span><span class="o">,</span><span class="w"> </span><span class="n">role</span>
+<span class="w">  </span><span class="mi">1001</span><span class="o">,</span><span class="w"> </span><span class="n">Emma</span><span class="w"> </span><span class="n">Wilson</span><span class="o">,</span><span class="w"> </span><span class="n">admin</span>
+<span class="w">  </span><span class="mi">1002</span><span class="o">,</span><span class="w"> </span><span class="n">James</span><span class="w"> </span><span class="n">Brown</span><span class="o">,</span><span class="w"> </span><span class="n">editor</span>
+<span class="n">totalCount</span><span class="o">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="n">active</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div>
+
+<blockquote>
+<p>Lists of objects with <strong>identical keys</strong> are automatically rendered as compact tables.</p>
+</blockquote>
+<hr />
+<h3 id="toon-json">🔄 TOON → JSON</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+
+<span class="n">toon</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">users:</span>
+<span class="s2">  id, name, role</span>
+<span class="s2">  1001, Emma Wilson, admin</span>
+<span class="s2">  1002, James Brown, editor</span>
+<span class="s2">totalCount: 2</span>
+<span class="s2">active: true</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">json_str</span> <span class="o">=</span> <span class="n">convert</span><span class="o">.</span><span class="n">toon_to_json</span><span class="p">(</span><span class="n">toon</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
+<span class="c1"># {&quot;users&quot;: [{&quot;id&quot;: 1001, ...}], &quot;totalCount&quot;: 2, &quot;active&quot;: true}</span>
+
+<span class="c1"># Or as a Python dict</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">convert</span><span class="o">.</span><span class="n">toon_to_json</span><span class="p">(</span><span class="n">toon</span><span class="p">,</span> <span class="n">as_string</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;totalCount&quot;</span><span class="p">])</span>  <span class="c1"># 2</span>
+</code></pre></div>
+
+<hr />
+<h3 id="xml-toon">🔄 XML → TOON</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+
+<span class="n">xml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;company&gt;</span>
+<span class="s2">  &lt;name&gt;TechCorp International&lt;/name&gt;</span>
+<span class="s2">  &lt;founded&gt;2010&lt;/founded&gt;</span>
+<span class="s2">  &lt;headquarters&gt;</span>
+<span class="s2">    &lt;city&gt;San Francisco&lt;/city&gt;</span>
+<span class="s2">    &lt;country&gt;USA&lt;/country&gt;</span>
+<span class="s2">  &lt;/headquarters&gt;</span>
+<span class="s2">&lt;/company&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">toon</span> <span class="o">=</span> <span class="n">convert</span><span class="o">.</span><span class="n">xml_to_toon</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">toon</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Output:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">company</span><span class="o">:</span>
+<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">TechCorp</span><span class="w"> </span><span class="n">International</span>
+<span class="w">  </span><span class="n">founded</span><span class="o">:</span><span class="w"> </span><span class="mi">2010</span>
+<span class="w">  </span><span class="n">headquarters</span><span class="o">:</span>
+<span class="w">    </span><span class="n">city</span><span class="o">:</span><span class="w"> </span><span class="n">San</span><span class="w"> </span><span class="n">Francisco</span>
+<span class="w">    </span><span class="n">country</span><span class="o">:</span><span class="w"> </span><span class="n">USA</span>
+</code></pre></div>
+
+<hr />
+<h3 id="toon-xml">🔄 TOON → XML</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+
+<span class="n">toon</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">company:</span>
+<span class="s2">  name: TechCorp International</span>
+<span class="s2">  founded: 2010</span>
+<span class="s2">  headquarters:</span>
+<span class="s2">    city: San Francisco</span>
+<span class="s2">    country: USA</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">xml</span> <span class="o">=</span> <span class="n">convert</span><span class="o">.</span><span class="n">toon_to_xml</span><span class="p">(</span><span class="n">toon</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span>
+<span class="c1"># &lt;company&gt;&lt;name&gt;TechCorp International&lt;/name&gt;&lt;founded&gt;2010&lt;/founded&gt;...&lt;/company&gt;</span>
+</code></pre></div>
+
+<hr />
+<h3 id="configuration-options">⚙️ Configuration Options</h3>
+<p>All conversion functions support two options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Values</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>indent</code></td>
+<td><code>2</code>, <code>4</code></td>
+<td><code>2</code></td>
+<td>Spaces per indentation level</td>
+</tr>
+<tr>
+<td><code>delimiter</code></td>
+<td><code>"comma"</code>, <code>"tab"</code>, <code>"pipe"</code></td>
+<td><code>"comma"</code></td>
+<td>Separator for tabular data</td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;products&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;P001&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Headphones&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">149.99</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;P002&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Smart Watch&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">299.99</span><span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># 4-space indent + pipe delimiter</span>
+<span class="n">toon</span> <span class="o">=</span> <span class="n">convert</span><span class="o">.</span><span class="n">json_to_toon</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">toon</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>Output with <code>indent=4, delimiter="pipe"</code>:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">products</span><span class="o">:</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">price</span>
+<span class="w">    </span><span class="n">P001</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Headphones</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mf">149.99</span>
+<span class="w">    </span><span class="n">P002</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Smart</span><span class="w"> </span><span class="n">Watch</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mf">299.99</span>
+</code></pre></div>
+
+<p><strong>Output with <code>indent=2, delimiter="tab"</code>:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">products</span><span class="o">:</span>
+<span class="w">  </span><span class="n">id</span><span class="w">    </span><span class="n">name</span><span class="w">    </span><span class="n">price</span>
+<span class="w">  </span><span class="n">P001</span><span class="w">  </span><span class="n">Headphones</span><span class="w">  </span><span class="mf">149.99</span>
+<span class="w">  </span><span class="n">P002</span><span class="w">  </span><span class="n">Smart</span><span class="w"> </span><span class="n">Watch</span><span class="w"> </span><span class="mf">299.99</span>
+</code></pre></div>
+
+<hr />
+<h3 id="class-based-api">🏗️ Class-Based API</h3>
+<p>For more control, use the encoder/decoder classes directly:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio.converters</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonToToonEncoder</span><span class="p">,</span> <span class="n">ToonToJsonDecoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">toonio.converters</span><span class="w"> </span><span class="kn">import</span> <span class="n">XmlToToonEncoder</span><span class="p">,</span> <span class="n">ToonToXmlDecoder</span>
+
+<span class="c1"># Reuse the same encoder instance</span>
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">JsonToToonEncoder</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">)</span>
+
+<span class="n">toon1</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="n">toon2</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;ToonIO&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">})</span>
+
+<span class="c1"># Decode with matching delimiter</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">ToonToJsonDecoder</span><span class="p">(</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">decoder</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">toon1</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h3 id="toon-format-reference">📖 TOON Format Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>TOON Syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key-value</td>
+<td><code>key: value</code></td>
+</tr>
+<tr>
+<td>Nested object</td>
+<td>Indented <code>key:</code> block</td>
+</tr>
+<tr>
+<td>Primitive list</td>
+<td><code>[item1, item2, item3]</code></td>
+</tr>
+<tr>
+<td>Object list (uniform)</td>
+<td>Tabular — header row + data rows</td>
+</tr>
+<tr>
+<td>Null</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>true</code> / <code>false</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example — all types:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">Mohit</span>
+<span class="n">age</span><span class="o">:</span><span class="w"> </span><span class="mi">25</span>
+<span class="n">active</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">score</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="n">skills</span><span class="o">:</span>
+<span class="w">  </span><span class="o">[</span><span class="n">Python</span><span class="o">,</span><span class="w"> </span><span class="n">Django</span><span class="o">,</span><span class="w"> </span><span class="n">REST</span><span class="o">]</span>
+<span class="n">analytics</span><span class="o">:</span>
+<span class="w">  </span><span class="n">period</span><span class="o">:</span><span class="w"> </span><span class="mi">2024</span><span class="o">-</span><span class="mi">11</span>
+<span class="w">  </span><span class="n">metrics</span><span class="o">:</span>
+<span class="w">    </span><span class="n">pageViews</span><span class="o">:</span><span class="w"> </span><span class="mi">125000</span>
+<span class="w">    </span><span class="n">bounceRate</span><span class="o">:</span><span class="w"> </span><span class="mf">42.5</span>
+<span class="n">topPages</span><span class="o">:</span>
+<span class="w">  </span><span class="n">url</span><span class="o">,</span><span class="w"> </span><span class="n">views</span><span class="o">,</span><span class="w"> </span><span class="n">avgTime</span>
+<span class="w">  </span><span class="o">/</span><span class="n">products</span><span class="o">,</span><span class="w"> </span><span class="mi">35000</span><span class="o">,</span><span class="w"> </span><span class="mi">180</span>
+<span class="w">  </span><span class="o">/</span><span class="n">blog</span><span class="o">,</span><span class="w"> </span><span class="mi">28000</span><span class="o">,</span><span class="w"> </span><span class="mi">320</span>
+</code></pre></div>
+
+<hr />
+<h3 id="running-tests">🧪 Running Tests</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Install dev dependencies</span>
+pip<span class="w"> </span>install<span class="w"> </span>pytest<span class="w"> </span>pytest-cov
+
+<span class="c1"># Run all tests</span>
+pytest
+
+<span class="c1"># Run with coverage report</span>
+pytest<span class="w"> </span>--cov<span class="o">=</span>toonio<span class="w"> </span>--cov-report<span class="o">=</span>term-missing
+</code></pre></div>
+
+<hr />
+<h2 id="project-information">📌 Project Information</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>ToonIO</td>
+</tr>
+<tr>
+<td><strong>Version</strong></td>
+<td>0.0.1</td>
+</tr>
+<tr>
+<td><strong>Author</strong></td>
+<td>Mohit Prajapat</td>
+</tr>
+<tr>
+<td><strong>Email</strong></td>
+<td>mohitdevelopment2001@gmail.com</td>
+</tr>
+<tr>
+<td><strong>License</strong></td>
+<td>MIT</td>
+</tr>
+<tr>
+<td><strong>Python</strong></td>
+<td>≥ 3.10</td>
+</tr>
+<tr>
+<td><strong>Repository</strong></td>
+<td><a href="https://github.com/mohitprajapat2001/toonio">github.com/mohitprajapat2001/toonio</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="contributing">🤝 Contributing</h2>
+<p>Contributions are welcome! Feel free to:</p>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch (<code>git checkout -b feature/my-feature</code>)</li>
+<li>Commit your changes (<code>git commit -m 'Add my feature'</code>)</li>
+<li>Push to the branch (<code>git push origin feature/my-feature</code>)</li>
+<li>Open a Pull Request</li>
+</ol>
+<p>Please read <code>CODE_OF_CONDUCT.md</code> for our community guidelines.</p>
+<hr />
+<h2 id="license">📄 License</h2>
+<p>This project is licensed under the <strong>MIT License</strong> — see the <a href="LICENCE">LICENCE</a> file for details.</p>
+<hr />
+<h2 id="authors-contributors">👥 Authors &amp; Contributors</h2>
+<p>See <a href="AUTHORS.rst">AUTHORS.rst</a> and <a href="CONTRIBUTORS">CONTRIBUTORS</a> for a full list.</p>
+<hr />
+<div align="center">
+Made with ❤️ by <a href="https://github.com/mohitprajapat2001">Mohit Prajapat</a>
+</div>
+  </div>
+</body>
+</html>

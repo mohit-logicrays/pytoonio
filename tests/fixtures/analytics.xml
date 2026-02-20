@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analytics>
+  <period>2024-11</period>
+  <metrics>
+    <pageViews>125000</pageViews>
+    <uniqueVisitors>45000</uniqueVisitors>
+    <avgSessionDuration>245</avgSessionDuration>
+    <bounceRate>42.5</bounceRate>
+  </metrics>
+  <topPages>
+    <page>
+      <url>/products</url>
+      <views>35000</views>
+      <avgTime>180</avgTime>
+    </page>
+    <page>
+      <url>/blog</url>
+      <views>28000</views>
+      <avgTime>320</avgTime>
+    </page>
+    <page>
+      <url>/pricing</url>
+      <views>22000</views>
+      <avgTime>150</avgTime>
+    </page>
+  </topPages>
+  <trafficSources>
+    <organic>55000</organic>
+    <direct>28000</direct>
+    <social>18000</social>
+    <referral>12000</referral>
+    <paid>12000</paid>
+  </trafficSources>
+  <devices>
+    <desktop>65000</desktop>
+    <mobile>52000</mobile>
+    <tablet>8000</tablet>
+  </devices>
+</analytics>

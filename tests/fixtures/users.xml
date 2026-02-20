@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user>
+    <id>1001</id>
+    <name>Emma Wilson</name>
+    <email>emma.wilson@example.com</email>
+    <role>admin</role>
+    <status>active</status>
+    <joinDate>2022-01-15</joinDate>
+    <permissions>
+      <permission>read</permission>
+      <permission>write</permission>
+      <permission>delete</permission>
+      <permission>admin</permission>
+    </permissions>
+    <profile>
+      <age>32</age>
+      <country>USA</country>
+      <timezone>PST</timezone>
+    </profile>
+  </user>
+  <user>
+    <id>1002</id>
+    <name>James Brown</name>
+    <email>james.brown@example.com</email>
+    <role>editor</role>
+    <status>active</status>
+    <joinDate>2022-03-20</joinDate>
+    <permissions>
+      <permission>read</permission>
+      <permission>write</permission>
+    </permissions>
+    <profile>
+      <age>28</age>
+      <country>Canada</country>
+      <timezone>EST</timezone>
+    </profile>
+  </user>
+  <user>
+    <id>1003</id>
+    <name>Sophia Martinez</name>
+    <email>sophia.m@example.com</email>
+    <role>viewer</role>
+    <status>active</status>
+    <joinDate>2023-05-10</joinDate>
+    <permissions>
+      <permission>read</permission>
+    </permissions>
+    <profile>
+      <age>25</age>
+      <country>Spain</country>
+      <timezone>CET</timezone>
+    </profile>
+  </user>
+  <user>
+    <id>1004</id>
+    <name>Liam Anderson</name>
+    <email>liam.a@example.com</email>
+    <role>editor</role>
+    <status>inactive</status>
+    <joinDate>2021-11-05</joinDate>
+    <permissions>
+      <permission>read</permission>
+      <permission>write</permission>
+    </permissions>
+    <profile>
+      <age>35</age>
+      <country>UK</country>
+      <timezone>GMT</timezone>
+    </profile>
+  </user>
+  <totalCount>4</totalCount>
+</users>

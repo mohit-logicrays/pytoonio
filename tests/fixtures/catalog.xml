@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <category>Electronics</category>
+  <products>
+    <product>
+      <id>P001</id>
+      <name>Wireless Headphones</name>
+      <brand>AudioTech</brand>
+      <price>149.99</price>
+      <stock>45</stock>
+      <specs>
+        <battery>30 hours</battery>
+        <bluetooth>5.0</bluetooth>
+        <noiseCancellation>true</noiseCancellation>
+      </specs>
+      <ratings>
+        <average>4.5</average>
+        <count>234</count>
+      </ratings>
+    </product>
+    <product>
+      <id>P002</id>
+      <name>Smart Watch</name>
+      <brand>WearTech</brand>
+      <price>299.99</price>
+      <stock>23</stock>
+      <specs>
+        <display>1.4 inch AMOLED</display>
+        <waterproof>true</waterproof>
+        <heartRate>true</heartRate>
+      </specs>
+      <ratings>
+        <average>4.7</average>
+        <count>567</count>
+      </ratings>
+    </product>
+    <product>
+      <id>P003</id>
+      <name>Laptop Pro</name>
+      <brand>CompuTech</brand>
+      <price>1299.99</price>
+      <stock>12</stock>
+      <specs>
+        <processor>i7-12700H</processor>
+        <ram>16GB</ram>
+        <storage>512GB SSD</storage>
+      </specs>
+      <ratings>
+        <average>4.8</average>
+        <count>892</count>
+      </ratings>
+    </product>
+  </products>
+</catalog>
