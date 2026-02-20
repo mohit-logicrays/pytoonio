@@ -45,6 +45,14 @@ DELIMITER_CHARS: dict[Delimiter, str] = {
     Delimiter.PIPE: " | ",
 }
 
+# Bare delimiter chars used in list annotations: key[N]{h1,h2}: and data rows
+BARE_DELIMITER_CHARS: dict[Delimiter, str] = {
+    Delimiter.COMMA: ",",
+    Delimiter.TAB: "\t",
+    Delimiter.PIPE: "|",
+}
+
+
 # --- Default Configuration ---
 
 DEFAULT_INDENT: int = IndentSize.TWO.value

@@ -82,27 +82,27 @@ class TestJsonToToonEncoder:
         assert "[Python, Django, REST]" in result
 
     def test_uniform_object_list_is_tabular(self, tabular_data: dict) -> None:
-        """A list of dicts with identical keys is rendered as a table."""
+        """A list of dicts with identical keys renders as key[N]{headers}: annotation."""
         encoder = JsonToToonEncoder()
         result = encoder.encode(tabular_data)
-        lines = result.strip().splitlines()
-        # Check header row exists
-        assert any("name, role, id" in line for line in lines)
-        assert any("Alice" in line for line in lines)
-        assert any("Bob" in line for line in lines)
+        # New format: contributors[3]{name,role,id}:
+        assert "contributors[3]{name,role,id}:" in result
+        assert "Alice,Maintainer,1" in result
+        assert "Bob,Contributor,2" in result
 
     def test_tabular_pipe_delimiter(self, tabular_data: dict) -> None:
-        """Pipe delimiter separates tabular columns."""
+        """Pipe delimiter separates tabular columns in annotation header and rows."""
         encoder = JsonToToonEncoder(delimiter="pipe")
         result = encoder.encode(tabular_data)
-        assert "name | role | id" in result
-        assert "Alice | Maintainer | 1" in result
+        assert "contributors[3]{name|role|id}:" in result
+        assert "Alice|Maintainer|1" in result
 
     def test_tabular_tab_delimiter(self, tabular_data: dict) -> None:
-        """Tab delimiter separates tabular columns."""
+        """Tab delimiter appears in tabular annotation header and data rows."""
         encoder = JsonToToonEncoder(delimiter="tab")
         result = encoder.encode(tabular_data)
-        assert "\t" in result
+        # Tab delimiter in header annotation and data rows
+        assert "contributors[3]{name\trole\tid}:" in result
 
     # ── Real-world fixtures ───────────────────────────────────────────────
 
@@ -135,11 +135,10 @@ class TestJsonToToonEncoder:
         assert "trafficSources" in result
 
     def test_analytics_top_pages_tabular(self, analytics_data: dict) -> None:
-        """Top pages list (uniform objects) renders as table."""
+        """Top pages uniform list renders with annotated key[N]{headers}: format."""
         encoder = JsonToToonEncoder()
         result = encoder.encode(analytics_data)
-        # topPages has 3 uniform dicts → table header should appear
-        assert "url, views, avgTime" in result
+        assert "topPages[3]{url,views,avgTime}:" in result
 
     def test_catalog_json_encodes(self, catalog_json_str: str) -> None:
         """Catalog dataset encodes to TOON without errors."""
@@ -150,17 +149,11 @@ class TestJsonToToonEncoder:
         assert "AudioTech" in result
 
     def test_catalog_nested_specs(self, catalog_data: dict) -> None:
-        """Catalog products are a uniform object list and rendered as a table.
-
-        Because each product has the same top-level keys (id, name, brand,
-        price, stock, specs, ratings), they render as a tabular block.
-        The table header must include the product field names.
-        """
+        """Catalog products (uniform list) render with annotated key[N]{headers}: format."""
         encoder = JsonToToonEncoder()
         result = encoder.encode(catalog_data)
-        # Products have uniform keys → tabular header must appear
-        assert "id, name, brand, price, stock, specs, ratings" in result
-        # Product names appear in data rows
+        # Products have uniform top-level keys → annotation header must appear
+        assert "products[3]{id,name,brand,price,stock,specs,ratings}:" in result
         assert "Wireless Headphones" in result
         assert "Smart Watch" in result
         assert "Laptop Pro" in result
@@ -251,10 +244,12 @@ class TestToonToJsonDecoder:
         assert result["user"]["address"]["city"] == "Jaipur"
 
     def test_round_trip_tabular_data(self, tabular_data: dict) -> None:
-        """Tabular data survives JSON → TOON → JSON round-trip."""
+        """Tabular data survives JSON → TOON → JSON round-trip with new format."""
         encoder = JsonToToonEncoder()
         decoder = ToonToJsonDecoder()
         toon = encoder.encode(tabular_data)
+        # Verify new format in encoded output
+        assert "contributors[3]{name,role,id}:" in toon
         result = decoder.decode(toon)
         contributors = result["contributors"]
         assert len(contributors) == 3
@@ -281,10 +276,11 @@ class TestToonToJsonDecoder:
         assert result["analytics"]["metrics"]["bounceRate"] == 42.5
 
     def test_round_trip_pipe_delimiter(self, tabular_data: dict) -> None:
-        """Tabular round-trip works with pipe delimiter."""
+        """Tabular round-trip works with pipe delimiter using new annotation format."""
         encoder = JsonToToonEncoder(delimiter="pipe")
         decoder = ToonToJsonDecoder(delimiter="pipe")
         toon = encoder.encode(tabular_data)
+        assert "contributors[3]{name|role|id}:" in toon
         result = decoder.decode(toon)
         assert result["contributors"][0]["name"] == "Alice"
 

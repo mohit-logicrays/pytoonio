@@ -78,15 +78,15 @@ print(toon)
 
 **Output:**
 ```
-users:
-  id, name, role
-  1001, Emma Wilson, admin
-  1002, James Brown, editor
+users[2]{id,name,role}:
+  1001,Emma Wilson,admin
+  1002,James Brown,editor
 totalCount: 2
 active: true
 ```
 
-> Lists of objects with **identical keys** are automatically rendered as compact tables.
+> 🔷 Lists of objects with **identical keys** use the compact `key[N]{headers}:` annotation.
+> Each data row is comma-separated (using the configured delimiter).
 
 ---
 
@@ -96,10 +96,9 @@ active: true
 from toonio import convert
 
 toon = """
-users:
-  id, name, role
-  1001, Emma Wilson, admin
-  1002, James Brown, editor
+users[2]{id,name,role}:
+  1001,Emma Wilson,admin
+  1002,James Brown,editor
 totalCount: 2
 active: true
 """
@@ -237,29 +236,51 @@ data = decoder.decode(toon1)
 |---|---|
 | Key-value | `key: value` |
 | Nested object | Indented `key:` block |
-| Primitive list | `[item1, item2, item3]` |
-| Object list (uniform) | Tabular — header row + data rows |
+| Primitive list (under a key) | `key: [item1, item2, item3]` |
+| **Uniform object list** | `key[N]{col1,col2,...}:` + data rows |
+| **Non-uniform object list** | `key[N]:` + `-` dash blocks |
 | Null | `null` |
 | Boolean | `true` / `false` |
 
-**Example — all types:**
+**Uniform object list** — all objects share the same keys:
+```
+users[3]{id,name,role}:
+  1,Alice,admin
+  2,Bob,user
+  3,Charlie,user
+```
+
+**Non-uniform object list** — objects have different keys:
+```
+users[2]:
+  -
+    id: 1
+    name: Alice
+    email: alice@example.com
+  -
+    name: Charlie
+    email: charlie@example.com
+    role: user
+```
+
+**Full example — all TOON types:**
 ```
 name: Mohit
 age: 25
 active: true
 score: null
-skills:
-  [Python, Django, REST]
+skills: [Python, Django, REST]
 analytics:
   period: 2024-11
   metrics:
     pageViews: 125000
     bounceRate: 42.5
-topPages:
-  url, views, avgTime
-  /products, 35000, 180
-  /blog, 28000, 320
+topPages[3]{url,views,avgTime}:
+  /products,35000,180
+  /blog,28000,320
+  /pricing,22000,150
 ```
+
 
 ---
 
