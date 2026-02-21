@@ -3,9 +3,6 @@ ToonIO Constants Module.
 
 Defines all constant values used across the ToonIO library including
 delimiters, indent sizes, and TOON format literals.
-
-Author: Mohit
-License: MIT
 """
 
 from enum import Enum
@@ -44,6 +41,14 @@ DELIMITER_CHARS: dict[Delimiter, str] = {
     Delimiter.TAB: "\t",
     Delimiter.PIPE: " | ",
 }
+
+# Bare delimiter chars used in list annotations: key[N]{h1,h2}: and data rows
+BARE_DELIMITER_CHARS: dict[Delimiter, str] = {
+    Delimiter.COMMA: ",",
+    Delimiter.TAB: "\t",
+    Delimiter.PIPE: "|",
+}
+
 
 # --- Default Configuration ---
 

@@ -3,14 +3,12 @@ ToonIO Utilities Module.
 
 Shared utility functions for type detection, string escaping,
 indentation management, and delimiter resolution.
-
-Author: Mohit
-License: MIT
 """
 
 from typing import Any
 
 from toonio.constants import (
+    BARE_DELIMITER_CHARS,
     DELIMITER_ALIASES,
     DELIMITER_CHARS,
     TOON_FALSE,
@@ -80,9 +78,23 @@ def get_delimiter_char(delimiter: Delimiter) -> str:
         delimiter: A Delimiter enum value.
 
     Returns:
-        The corresponding delimiter character string.
+        The corresponding delimiter character string (may include spaces).
     """
     return DELIMITER_CHARS[delimiter]
+
+
+def get_bare_delimiter_char(delimiter: Delimiter) -> str:
+    """Get the bare (no surrounding spaces) delimiter character.
+
+    Used in the ``key[N]{headers}:`` list annotation format and data rows.
+
+    Args:
+        delimiter: A Delimiter enum value.
+
+    Returns:
+        The bare delimiter character string (no padding spaces).
+    """
+    return BARE_DELIMITER_CHARS[delimiter]
 
 
 def make_indent(level: int, size: int) -> str:

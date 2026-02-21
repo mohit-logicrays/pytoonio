@@ -3,9 +3,6 @@ ToonIO Base Converter Module.
 
 Defines the abstract base classes for all encoders and decoders
 following the Interface Segregation Principle.
-
-Author: Mohit
-License: MIT
 """
 
 from abc import ABC, abstractmethod

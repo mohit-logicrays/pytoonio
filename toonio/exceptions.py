@@ -3,9 +3,6 @@ ToonIO Exceptions Module.
 
 Defines the custom exception hierarchy for the ToonIO library.
 All exceptions inherit from the base ToonIOError.
-
-Author: Mohit
-License: MIT
 """
 
 

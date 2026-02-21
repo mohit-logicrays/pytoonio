@@ -9,9 +9,6 @@ Example:
     >>> from toonio import convert
     >>> toon = convert.json_to_toon('{"name": "Mohit"}')
     >>> json_str = convert.toon_to_json(toon)
-
-Author: Mohit
-License: MIT
 """
 
 from typing import Any
