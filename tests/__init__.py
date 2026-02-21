@@ -1,1 +1,1 @@
-"""ToonIO test package."""
+"""PyToonIO test package."""

@@ -1,5 +1,5 @@
 """
-ToonIO JSON Converter Module.
+PyToonIO JSON Converter Module.
 
 Provides concrete implementations for converting between JSON and TOON formats.
 
@@ -36,10 +36,10 @@ import json
 import re
 from typing import Any
 
-from toonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter
-from toonio.converters.base import BaseDecoder, BaseEncoder
-from toonio.exceptions import ToonDecodeError, ToonEncodeError
-from toonio.utils import (
+from pytoonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter
+from pytoonio.converters.base import BaseDecoder, BaseEncoder
+from pytoonio.exceptions import ToonDecodeError, ToonEncodeError
+from pytoonio.utils import (
     detect_type,
     get_bare_delimiter_char,
     get_delimiter_char,

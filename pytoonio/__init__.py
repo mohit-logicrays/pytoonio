@@ -1,5 +1,5 @@
 """
-ToonIO - A Python library to convert JSON and XML to TOON format and vice versa.
+PyToonIO - A Python library to convert JSON and XML to TOON format and vice versa.
 
 TOON is a human-readable data format designed to be simpler and easier to write
 than JSON and XML. It combines the structural clarity of both formats while
@@ -14,7 +14,7 @@ Features:
     - Full type hinting support
 
 Example:
-    >>> from toonio import convert
+    >>> from pytoonio import convert
     >>> toon = convert.json_to_toon({"name": "Mohit", "age": 25})
     >>> print(toon)
     name: Mohit
@@ -24,9 +24,9 @@ Author: Mohit
 License: MIT
 """
 
-from toonio import convert
-from toonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter, IndentSize
-from toonio.converters import (
+from pytoonio import convert
+from pytoonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter, IndentSize
+from pytoonio.converters import (
     BaseDecoder,
     BaseEncoder,
     JsonToToonEncoder,
@@ -34,12 +34,12 @@ from toonio.converters import (
     ToonToXmlDecoder,
     XmlToToonEncoder,
 )
-from toonio.exceptions import (
+from pytoonio.exceptions import (
     ToonDecodeError,
     ToonEncodeError,
     ToonInvalidDelimiterError,
     ToonInvalidIndentError,
-    ToonIOError,
+    PyToonIOError,
 )
 
 __version__: str = "0.0.1"
@@ -65,7 +65,7 @@ __all__: list[str] = [
     "XmlToToonEncoder",
     "ToonToXmlDecoder",
     # Exceptions
-    "ToonIOError",
+    "PyToonIOError",
     "ToonEncodeError",
     "ToonDecodeError",
     "ToonInvalidDelimiterError",

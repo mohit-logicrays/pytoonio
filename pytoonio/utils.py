@@ -1,5 +1,5 @@
 """
-ToonIO Utilities Module.
+PyToonIO Utilities Module.
 
 Shared utility functions for type detection, string escaping,
 indentation management, and delimiter resolution.
@@ -7,7 +7,7 @@ indentation management, and delimiter resolution.
 
 from typing import Any
 
-from toonio.constants import (
+from pytoonio.constants import (
     BARE_DELIMITER_CHARS,
     DELIMITER_ALIASES,
     DELIMITER_CHARS,
@@ -17,7 +17,7 @@ from toonio.constants import (
     VALID_INDENT_SIZES,
     Delimiter,
 )
-from toonio.exceptions import ToonInvalidDelimiterError, ToonInvalidIndentError
+from pytoonio.exceptions import ToonInvalidDelimiterError, ToonInvalidIndentError
 
 
 def resolve_delimiter(delimiter: str | Delimiter) -> Delimiter:

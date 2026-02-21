@@ -1,24 +1,24 @@
 """
-ToonIO Exceptions Module.
+PyToonIO Exceptions Module.
 
-Defines the custom exception hierarchy for the ToonIO library.
-All exceptions inherit from the base ToonIOError.
+Defines the custom exception hierarchy for the PyToonIO library.
+All exceptions inherit from the base PyToonIOError.
 """
 
 
-class ToonIOError(Exception):
-    """Base exception for all ToonIO errors.
+class PyToonIOError(Exception):
+    """Base exception for all PyToonIO errors.
 
     Attributes:
         message: Human-readable error description.
     """
 
-    def __init__(self, message: str = "An error occurred in ToonIO") -> None:
+    def __init__(self, message: str = "An error occurred in PyToonIO") -> None:
         self.message: str = message
         super().__init__(self.message)
 
 
-class ToonEncodeError(ToonIOError):
+class ToonEncodeError(PyToonIOError):
     """Raised when encoding data to TOON format fails.
 
     Example:
@@ -29,7 +29,7 @@ class ToonEncodeError(ToonIOError):
         super().__init__(message)
 
 
-class ToonDecodeError(ToonIOError):
+class ToonDecodeError(PyToonIOError):
     """Raised when decoding/parsing a TOON string fails.
 
     Example:
@@ -40,7 +40,7 @@ class ToonDecodeError(ToonIOError):
         super().__init__(message)
 
 
-class ToonInvalidDelimiterError(ToonIOError):
+class ToonInvalidDelimiterError(PyToonIOError):
     """Raised when an unsupported delimiter is specified.
 
     Attributes:
@@ -55,7 +55,7 @@ class ToonInvalidDelimiterError(ToonIOError):
         )
 
 
-class ToonInvalidIndentError(ToonIOError):
+class ToonInvalidIndentError(PyToonIOError):
     """Raised when an unsupported indent size is specified.
 
     Attributes:

@@ -1,21 +1,21 @@
 """
-ToonIO Public API Facade.
+PyToonIO Public API Facade.
 
 Provides simple module-level functions for converting between
 JSON, XML, and TOON formats. This is the recommended entry point
 for most users.
 
 Example:
-    >>> from toonio import convert
+    >>> from pytoonio import convert
     >>> toon = convert.json_to_toon('{"name": "Mohit"}')
     >>> json_str = convert.toon_to_json(toon)
 """
 
 from typing import Any
 
-from toonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter
-from toonio.converters.json_converter import JsonToToonEncoder, ToonToJsonDecoder
-from toonio.converters.xml_converter import ToonToXmlDecoder, XmlToToonEncoder
+from pytoonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter
+from pytoonio.converters.json_converter import JsonToToonEncoder, ToonToJsonDecoder
+from pytoonio.converters.xml_converter import ToonToXmlDecoder, XmlToToonEncoder
 
 
 def json_to_toon(

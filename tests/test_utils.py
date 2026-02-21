@@ -20,15 +20,15 @@ from __future__ import annotations
 
 import pytest
 
-from toonio.constants import Delimiter
-from toonio.exceptions import (
+from pytoonio.constants import Delimiter
+from pytoonio.exceptions import (
     ToonDecodeError,
     ToonEncodeError,
     ToonInvalidDelimiterError,
     ToonInvalidIndentError,
-    ToonIOError,
+    PyToonIOError,
 )
-from toonio.utils import (
+from pytoonio.utils import (
     detect_type,
     escape_string,
     get_delimiter_char,
@@ -274,46 +274,46 @@ class TestPythonToToonLiteral:
 class TestExceptions:
     """Tests for all custom exception classes."""
 
-    def test_toonio_error_base(self) -> None:
-        """ToonIOError is a subclass of Exception."""
-        err = ToonIOError("oops")
+    def test_pytoonio_error_base(self) -> None:
+        """PyToonIOError is a subclass of Exception."""
+        err = PyToonIOError("oops")
         assert isinstance(err, Exception)
         assert err.message == "oops"
 
     def test_default_message(self) -> None:
         """Default message is set when no message is provided."""
-        err = ToonIOError()
+        err = PyToonIOError()
         assert isinstance(err.message, str)
         assert len(err.message) > 0
 
     def test_encode_error(self) -> None:
-        """ToonEncodeError inherits from ToonIOError."""
+        """ToonEncodeError inherits from PyToonIOError."""
         err = ToonEncodeError("encode fail")
-        assert isinstance(err, ToonIOError)
+        assert isinstance(err, PyToonIOError)
         assert "encode fail" in str(err)
 
     def test_decode_error(self) -> None:
-        """ToonDecodeError inherits from ToonIOError."""
+        """ToonDecodeError inherits from PyToonIOError."""
         err = ToonDecodeError("decode fail")
-        assert isinstance(err, ToonIOError)
+        assert isinstance(err, PyToonIOError)
 
     def test_invalid_delimiter_error(self) -> None:
         """ToonInvalidDelimiterError stores the invalid delimiter."""
         err = ToonInvalidDelimiterError("semicolon")
-        assert isinstance(err, ToonIOError)
+        assert isinstance(err, PyToonIOError)
         assert err.delimiter == "semicolon"
         assert "semicolon" in err.message
 
     def test_invalid_indent_error(self) -> None:
         """ToonInvalidIndentError stores the invalid indent value."""
         err = ToonInvalidIndentError(3)
-        assert isinstance(err, ToonIOError)
+        assert isinstance(err, PyToonIOError)
         assert err.indent == 3
         assert "3" in err.message
 
     def test_exceptions_can_be_raised(self) -> None:
         """Exceptions can be raised and caught correctly."""
-        with pytest.raises(ToonIOError):
+        with pytest.raises(PyToonIOError):
             raise ToonEncodeError("test error")
 
     def test_invalid_delimiter_raised_by_resolve(self) -> None:
