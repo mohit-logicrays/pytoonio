@@ -13,4 +13,4 @@ authors = [{ name="Mohit Prajapat", email="mohitdevelopment2001@gmail.com" }]
 
 [project.urls]
 Homepage = "https://github.com/mohitprajapat2001/toonio"
-Bug Tracker = "https://github.com/mohitprajapat2001/toonio/issues"
+"Bug Tracker" = "https://github.com/mohitprajapat2001/toonio/issues"
