@@ -1,5 +1,5 @@
 """
-ToonIO Test Fixtures (conftest.py).
+PyToonIO Test Fixtures (conftest.py).
 
 Shared pytest fixtures for loading JSON and XML test data from
 the fixtures/ directory.

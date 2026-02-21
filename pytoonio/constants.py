@@ -1,7 +1,7 @@
 """
-ToonIO Constants Module.
+PyToonIO Constants Module.
 
-Defines all constant values used across the ToonIO library including
+Defines all constant values used across the PyToonIO library including
 delimiters, indent sizes, and TOON format literals.
 """
 

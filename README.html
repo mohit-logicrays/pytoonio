@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ToonIO — Documentation</title>
+  <title>PyToonIO — Documentation</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -131,11 +131,11 @@
 </head>
 <body>
   <div class="wrapper">
-    <h1 id="toonio">ToonIO</h1>
-<p><img alt="ToonIO" src="https://img.shields.io/badge/ToonIO-v0.0.1-blue?style=for-the-badge" /><br />
+    <h1 id="pytoonio">PyToonIO</h1>
+<p><img alt="pytoonio" src="https://img.shields.io/badge/pytoonio-v0.0.1-blue?style=for-the-badge" /><br />
 <img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-green?style=for-the-badge&amp;logo=python" /><br />
 <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" /><br />
-<img alt="PyPI" src="https://img.shields.io/badge/PyPI-toonio-orange?style=for-the-badge&amp;logo=pypi" /></p>
+<img alt="PyPI" src="https://img.shields.io/badge/PyPI-pytoonio-orange?style=for-the-badge&amp;logo=pypi" /></p>
 <p><strong>A lightweight Python library for converting between JSON, XML, and TOON — a modern, human-friendly data format.</strong></p>
 <hr />
 <h2 id="what-is-toon">🚀 What is TOON?</h2>
@@ -185,20 +185,20 @@
 </table>
 <hr />
 <h2 id="installation">📦 Installation</h2>
-<p>Install ToonIO via pip:</p>
-<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>toonio
+<p>Install PyToonIO via pip:</p>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pytoonio
 </code></pre></div>
 
 <p><strong>Requirements:</strong> Python 3.10+</p>
 <hr />
 <h2 id="usage">🧑‍💻 Usage</h2>
 <h3 id="quick-start">Quick Start</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pytoonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
 </code></pre></div>
 
 <hr />
 <h3 id="json-toon">🔄 JSON → TOON</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pytoonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -227,7 +227,7 @@
 </blockquote>
 <hr />
 <h3 id="toon-json">🔄 TOON → JSON</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pytoonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
 
 <span class="n">toon</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">users:</span>
@@ -249,7 +249,7 @@
 
 <hr />
 <h3 id="xml-toon">🔄 XML → TOON</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pytoonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
 
 <span class="n">xml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;company&gt;</span>
@@ -277,7 +277,7 @@
 
 <hr />
 <h3 id="toon-xml">🔄 TOON → XML</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pytoonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
 
 <span class="n">toon</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">company:</span>
@@ -320,7 +320,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pytoonio</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;products&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -351,14 +351,14 @@
 <hr />
 <h3 id="class-based-api">🏗️ Class-Based API</h3>
 <p>For more control, use the encoder/decoder classes directly:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">toonio.converters</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonToToonEncoder</span><span class="p">,</span> <span class="n">ToonToJsonDecoder</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">toonio.converters</span><span class="w"> </span><span class="kn">import</span> <span class="n">XmlToToonEncoder</span><span class="p">,</span> <span class="n">ToonToXmlDecoder</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pytoonio.converters</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonToToonEncoder</span><span class="p">,</span> <span class="n">ToonToJsonDecoder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pytoonio.converters</span><span class="w"> </span><span class="kn">import</span> <span class="n">XmlToToonEncoder</span><span class="p">,</span> <span class="n">ToonToXmlDecoder</span>
 
 <span class="c1"># Reuse the same encoder instance</span>
 <span class="n">encoder</span> <span class="o">=</span> <span class="n">JsonToToonEncoder</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">)</span>
 
 <span class="n">toon1</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
-<span class="n">toon2</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;ToonIO&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">})</span>
+<span class="n">toon2</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;pytoonio&quot;</span><span class="p">,</span> <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.1&quot;</span><span class="p">})</span>
 
 <span class="c1"># Decode with matching delimiter</span>
 <span class="n">decoder</span> <span class="o">=</span> <span class="n">ToonToJsonDecoder</span><span class="p">(</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;pipe&quot;</span><span class="p">)</span>
@@ -428,7 +428,7 @@ pip<span class="w"> </span>install<span class="w"> </span>pytest<span class="w">
 pytest
 
 <span class="c1"># Run with coverage report</span>
-pytest<span class="w"> </span>--cov<span class="o">=</span>toonio<span class="w"> </span>--cov-report<span class="o">=</span>term-missing
+pytest<span class="w"> </span>--cov<span class="o">=</span>pytoonio<span class="w"> </span>--cov-report<span class="o">=</span>term-missing
 </code></pre></div>
 
 <hr />
@@ -443,7 +443,7 @@ pytest<span class="w"> </span>--cov<span class="o">=</span>toonio<span class="w"
 <tbody>
 <tr>
 <td><strong>Name</strong></td>
-<td>ToonIO</td>
+<td>pytoonio</td>
 </tr>
 <tr>
 <td><strong>Version</strong></td>
@@ -467,7 +467,7 @@ pytest<span class="w"> </span>--cov<span class="o">=</span>toonio<span class="w"
 </tr>
 <tr>
 <td><strong>Repository</strong></td>
-<td><a href="https://github.com/mohitprajapat2001/toonio">github.com/mohitprajapat2001/toonio</a></td>
+<td><a href="https://github.com/mohitprajapat2001/pytoonio">github.com/mohitprajapat2001/pytoonio</a></td>
 </tr>
 </tbody>
 </table>

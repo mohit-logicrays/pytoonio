@@ -1,5 +1,5 @@
 """
-ToonIO XML Converter Module.
+PyToonIO XML Converter Module.
 
 Provides concrete implementations for converting between XML and TOON formats.
 
@@ -13,10 +13,10 @@ and generation. Conversion is done via an intermediate Python dict.
 import xml.etree.ElementTree as ET
 from typing import Any
 
-from toonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter
-from toonio.converters.base import BaseDecoder, BaseEncoder
-from toonio.converters.json_converter import JsonToToonEncoder, ToonToJsonDecoder
-from toonio.exceptions import ToonDecodeError, ToonEncodeError
+from pytoonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter
+from pytoonio.converters.base import BaseDecoder, BaseEncoder
+from pytoonio.converters.json_converter import JsonToToonEncoder, ToonToJsonDecoder
+from pytoonio.exceptions import ToonDecodeError, ToonEncodeError
 
 
 class XmlToToonEncoder(BaseEncoder):

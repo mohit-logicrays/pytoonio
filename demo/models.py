@@ -1,5 +1,5 @@
 """
-ToonIO Demo — Pydantic Request/Response Models.
+PyToonIO Demo — Pydantic Request/Response Models.
 """
 
 from __future__ import annotations

@@ -1,5 +1,5 @@
 """
-ToonIO Base Converter Module.
+PyToonIO Base Converter Module.
 
 Defines the abstract base classes for all encoders and decoders
 following the Interface Segregation Principle.
@@ -8,8 +8,8 @@ following the Interface Segregation Principle.
 from abc import ABC, abstractmethod
 from typing import Any
 
-from toonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter
-from toonio.utils import resolve_delimiter, validate_indent
+from pytoonio.constants import DEFAULT_DELIMITER, DEFAULT_INDENT, Delimiter
+from pytoonio.utils import resolve_delimiter, validate_indent
 
 
 class BaseEncoder(ABC):

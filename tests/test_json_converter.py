@@ -21,7 +21,7 @@ import json
 
 import pytest
 
-from toonio.converters.json_converter import JsonToToonEncoder, ToonToJsonDecoder
+from pytoonio.converters.json_converter import JsonToToonEncoder, ToonToJsonDecoder
 
 
 class TestJsonToToonEncoder:

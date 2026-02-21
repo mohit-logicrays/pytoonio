@@ -19,7 +19,7 @@ import xml.etree.ElementTree as ET
 
 import pytest
 
-from toonio.converters.xml_converter import ToonToXmlDecoder, XmlToToonEncoder
+from pytoonio.converters.xml_converter import ToonToXmlDecoder, XmlToToonEncoder
 
 
 class TestXmlToToonEncoder:

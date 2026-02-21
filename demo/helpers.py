@@ -1,5 +1,5 @@
 """
-ToonIO Demo — Helpers.
+PyToonIO Demo — Helpers.
 
 - ``to_toon``    : convert JSON / XML / TOON data to a TOON string.
 - ``stream_groq``: async generator that streams LLM response via LiteLLM/Groq.
@@ -11,12 +11,12 @@ from typing import Any, AsyncGenerator
 
 import litellm
 
-from toonio import convert
+from pytoonio import convert
 from demo.constants import MODEL, SYSTEM_PROMPT
 
 
 def to_toon(data: Any, fmt: str, indent: int, delimiter: str) -> str:
-    """Convert data to TOON format using ToonIO.
+    """Convert data to TOON format using PyToonIO.
 
     Args:
         data: Input data — dict, list, JSON string, or XML string.

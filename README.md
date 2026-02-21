@@ -1,12 +1,11 @@
-# ToonIO
+# PyToonIo
 
-![ToonIO](https://img.shields.io/badge/ToonIO-v0.0.1-blue?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-green?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
-![PyPI](https://img.shields.io/badge/PyPI-toonio-orange?style=for-the-badge&logo=pypi)
+![PyPI](https://img.shields.io/badge/PyPI-pytoonio-orange?style=for-the-badge&logo=pypi)
 
-**A lightweight Python library for converting between JSON, XML, and TOON — a modern, human-friendly data format.**
-
+**A lightweight Python library for converting between JSON, XML, and TOON — a modern,
+human-friendly data format.**
 
 ---
 
@@ -19,29 +18,30 @@
 - ✅ **Easier manual editing** — Friendly for developers and non-developers alike
 - ✅ **Clear structure representation** — Logical and consistent nesting
 
-It aims to combine the structural clarity of JSON and XML while significantly reducing visual clutter.
+It aims to combine the structural clarity of JSON and XML while significantly reducing
+visual clutter.
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| 🔄 JSON → TOON | Convert any JSON data to the TOON format |
-| 🔄 XML → TOON | Convert any XML data to the TOON format |
-| 🔄 TOON → JSON | Parse TOON back into JSON |
-| 🔄 TOON → XML | Parse TOON back into XML |
-| 🪶 Lightweight | Minimal dependencies, fast and efficient |
-| 🧩 Simple API | Clean, intuitive API for easy integration |
+| Feature        | Description                               |
+| -------------- | ----------------------------------------- |
+| 🔄 JSON → TOON | Convert any JSON data to the TOON format  |
+| 🔄 XML → TOON  | Convert any XML data to the TOON format   |
+| 🔄 TOON → JSON | Parse TOON back into JSON                 |
+| 🔄 TOON → XML  | Parse TOON back into XML                  |
+| 🪶 Lightweight | Minimal dependencies, fast and efficient  |
+| 🧩 Simple API  | Clean, intuitive API for easy integration |
 
 ---
 
 ## 📦 Installation
 
-Install ToonIO via pip:
+Install pytoonio via pip:
 
 ```bash
-pip install toonio
+pip install pytoonio
 ```
 
 **Requirements:** Python 3.10+
@@ -53,7 +53,7 @@ pip install toonio
 ### Quick Start
 
 ```python
-from toonio import convert
+from pytoonio import convert
 ```
 
 ---
@@ -61,7 +61,7 @@ from toonio import convert
 ### 🔄 JSON → TOON
 
 ```python
-from toonio import convert
+from pytoonio import convert
 
 data = {
     "users": [
@@ -77,6 +77,7 @@ print(toon)
 ```
 
 **Output:**
+
 ```
 users[2]{id,name,role}:
   1001,Emma Wilson,admin
@@ -85,15 +86,15 @@ totalCount: 2
 active: true
 ```
 
-> 🔷 Lists of objects with **identical keys** use the compact `key[N]{headers}:` annotation.
-> Each data row is comma-separated (using the configured delimiter).
+> 🔷 Lists of objects with **identical keys** use the compact `key[N]{headers}:`
+> annotation. Each data row is comma-separated (using the configured delimiter).
 
 ---
 
 ### 🔄 TOON → JSON
 
 ```python
-from toonio import convert
+from pytoonio import convert
 
 toon = """
 users[2]{id,name,role}:
@@ -117,7 +118,7 @@ print(data["totalCount"])  # 2
 ### 🔄 XML → TOON
 
 ```python
-from toonio import convert
+from pytoonio import convert
 
 xml = """
 <company>
@@ -135,6 +136,7 @@ print(toon)
 ```
 
 **Output:**
+
 ```
 company:
   name: TechCorp International
@@ -149,7 +151,7 @@ company:
 ### 🔄 TOON → XML
 
 ```python
-from toonio import convert
+from pytoonio import convert
 
 toon = """
 company:
@@ -171,13 +173,13 @@ print(xml)
 
 All conversion functions support two options:
 
-| Option | Values | Default | Description |
-|---|---|---|---|
-| `indent` | `2`, `4` | `2` | Spaces per indentation level |
-| `delimiter` | `"comma"`, `"tab"`, `"pipe"` | `"comma"` | Separator for tabular data |
+| Option      | Values                       | Default   | Description                  |
+| ----------- | ---------------------------- | --------- | ---------------------------- |
+| `indent`    | `2`, `4`                     | `2`       | Spaces per indentation level |
+| `delimiter` | `"comma"`, `"tab"`, `"pipe"` | `"comma"` | Separator for tabular data   |
 
 ```python
-from toonio import convert
+from pytoonio import convert
 
 data = {
     "products": [
@@ -192,6 +194,7 @@ print(toon)
 ```
 
 **Output with `indent=4, delimiter="pipe"`:**
+
 ```
 products:
     id | name | price
@@ -200,6 +203,7 @@ products:
 ```
 
 **Output with `indent=2, delimiter="tab"`:**
+
 ```
 products:
   id	name	price
@@ -214,14 +218,14 @@ products:
 For more control, use the encoder/decoder classes directly:
 
 ```python
-from toonio.converters import JsonToToonEncoder, ToonToJsonDecoder
-from toonio.converters import XmlToToonEncoder, ToonToXmlDecoder
+from pytoonio.converters import JsonToToonEncoder, ToonToJsonDecoder
+from pytoonio.converters import XmlToToonEncoder, ToonToXmlDecoder
 
 # Reuse the same encoder instance
 encoder = JsonToToonEncoder(indent=4, delimiter="pipe")
 
 toon1 = encoder.encode({"name": "Alice", "age": 30})
-toon2 = encoder.encode({"project": "ToonIO", "version": "0.0.1"})
+toon2 = encoder.encode({"project": "pytoonio", "version": "0.0.1"})
 
 # Decode with matching delimiter
 decoder = ToonToJsonDecoder(delimiter="pipe")
@@ -232,17 +236,18 @@ data = decoder.decode(toon1)
 
 ### 📖 TOON Format Reference
 
-| Data | TOON Syntax |
-|---|---|
-| Key-value | `key: value` |
-| Nested object | Indented `key:` block |
-| Primitive list (under a key) | `key: [item1, item2, item3]` |
-| **Uniform object list** | `key[N]{col1,col2,...}:` + data rows |
-| **Non-uniform object list** | `key[N]:` + `-` dash blocks |
-| Null | `null` |
-| Boolean | `true` / `false` |
+| Data                         | TOON Syntax                          |
+| ---------------------------- | ------------------------------------ |
+| Key-value                    | `key: value`                         |
+| Nested object                | Indented `key:` block                |
+| Primitive list (under a key) | `key: [item1, item2, item3]`         |
+| **Uniform object list**      | `key[N]{col1,col2,...}:` + data rows |
+| **Non-uniform object list**  | `key[N]:` + `-` dash blocks          |
+| Null                         | `null`                               |
+| Boolean                      | `true` / `false`                     |
 
 **Uniform object list** — all objects share the same keys:
+
 ```
 users[3]{id,name,role}:
   1,Alice,admin
@@ -251,6 +256,7 @@ users[3]{id,name,role}:
 ```
 
 **Non-uniform object list** — objects have different keys:
+
 ```
 users[2]:
   -
@@ -264,6 +270,7 @@ users[2]:
 ```
 
 **Full example — all TOON types:**
+
 ```
 name: Mohit
 age: 25
@@ -281,7 +288,6 @@ topPages[3]{url,views,avgTime}:
   /pricing,22000,150
 ```
 
-
 ---
 
 ### 🧪 Running Tests
@@ -294,24 +300,22 @@ pip install pytest pytest-cov
 pytest
 
 # Run with coverage report
-pytest --cov=toonio --cov-report=term-missing
+pytest --cov=pytoonio --cov-report=term-missing
 ```
 
 ---
 
-
-
 ## 📌 Project Information
 
-| Field | Value |
-|---|---|
-| **Name** | ToonIO |
-| **Version** | 0.0.1 |
-| **Author** | Mohit Prajapat |
-| **Email** | mohitdevelopment2001@gmail.com |
-| **License** | MIT |
-| **Python** | ≥ 3.10 |
-| **Repository** | [github.com/mohitprajapat2001/toonio](https://github.com/mohitprajapat2001/toonio) |
+| Field          | Value                                                                                  |
+| -------------- | -------------------------------------------------------------------------------------- |
+| **Name**       | pytoonio                                                                               |
+| **Version**    | 0.0.1                                                                                  |
+| **Author**     | Mohit Prajapat                                                                         |
+| **Email**      | mohitdevelopment2001@gmail.com                                                         |
+| **License**    | MIT                                                                                    |
+| **Python**     | ≥ 3.10                                                                                 |
+| **Repository** | [github.com/mohitprajapat2001/pytoonio](https://github.com/mohitprajapat2001/pytoonio) |
 
 ---
 
@@ -331,7 +335,8 @@ Please read `CODE_OF_CONDUCT.md` for our community guidelines.
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENCE](LICENCE) file for details.
+This project is licensed under the **MIT License** — see the [LICENCE](LICENCE) file for
+details.
 
 ---
 

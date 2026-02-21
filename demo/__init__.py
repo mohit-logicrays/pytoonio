@@ -1,1 +1,1 @@
-"""ToonIO Grok + LiteLLM Demo package."""
+"""PyToonIO Grok + LiteLLM Demo package."""
